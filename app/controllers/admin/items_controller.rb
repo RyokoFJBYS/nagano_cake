@@ -14,7 +14,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to admin_item_path(item.id)
+    redirect_to admin_item_path(@item.id)
   end
 
   def edit
@@ -26,15 +26,11 @@ class Admin::ItemsController < ApplicationController
     @item.update(item_params)
     redirect_to admin_item(item.id)
   end
-  
-  def with_tax_price
-    (price * 1.1).floor
-  end
 
   private
 
   def item_params
-    params.require(:item).permit(:genre_id, :name, :image_id, :introduction, :price, :is_active)
+    params.require(:item).permit(:genre_id, :name, :image, :introduction, :price, :is_active)
   end
 
 end

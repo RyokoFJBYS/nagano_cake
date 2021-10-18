@@ -1,5 +1,29 @@
 Rails.application.routes.draw do
 
+  scope module: :public do
+    root to: 'homes#top'
+    get "about" => "homes#about"
+    resources :items, only: [:show, :index]
+    resources :addresses, except: [:show, :new]
+    resources :customers, only: [:show, :update, :edit] do
+      member do
+      get 'unsubscribe'
+      patch 'withdraw'
+      end
+    end
+    resources :cart_items, only: [:index, :update, :destroy, :create] do
+      collection do
+      delete 'destroy_all'
+      end
+    end
+    resources :orders, only: [:index, :new, :show, :create] do
+      collection do
+      post 'comfirm'
+      get 'complete'
+      end
+    end
+  end
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',

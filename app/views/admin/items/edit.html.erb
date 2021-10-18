@@ -1,2 +1,41 @@
-<h1>商品編集画面</h1>
-<label><%= link_to "変更を保存", admin_item_path(@item.id) %></label>
+<h2>商品編集画面</h2>
+ <%= form_with model: [:admin, @item], local:true do |f| %>
+<table>
+  <tbody>
+    <tr>
+      <td>商品画像</td>
+      <td><%= f.attachment_field :image %></td>
+    </tr>
+    <tr>
+      <td>商品名</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></td>
+    </tr>
+    <tr>
+      <td>税抜価格</td>
+      <td><%= f.text_field :price %>円</td>
+    </tr>
+    <tr>
+      <td>販売ステータス</td>
+      <td>
+        <%= f.radio_button :is_active, "true" %>
+        <%= f.label :is_active, "販売中" %>
+        <%= f.radio_button :is_active, "false" %>
+        <%= f.label :is_active, "販売停止中" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit '変更を保存' %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% end %>

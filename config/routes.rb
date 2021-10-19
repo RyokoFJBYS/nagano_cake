@@ -5,12 +5,13 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
     resources :items, only: [:show, :index]
     resources :addresses, except: [:show, :new]
-    resources :customers, only: [:show, :update, :edit] do
-      member do
+    resource :customers, only: [:update, :edit] do
+      collection do
       get 'unsubscribe'
       patch 'withdraw'
       end
     end
+    get "customers/my_page" => "customers#show"
     resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
       delete 'destroy_all'

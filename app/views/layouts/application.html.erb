@@ -66,6 +66,9 @@
       </nav>
       </div>
     </nav>
+    <% if customer_signed_in? %>
+    <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -3,9 +3,10 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :addresses, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   def name
     self.last_name + self.first_name
@@ -18,9 +19,13 @@ class Customer < ApplicationRecord
   def name_kana
     self.last_name_kana + "　" + self.first_name_kana
   end
-  
+
   def active_for_authentication?
     super && (self.is_active == true)
+  end
+
+  def full_address
+    '〒' + postal_code + ' ' + address + ' ' + name
   end
 
 end

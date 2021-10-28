@@ -7,7 +7,12 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item.save
+    @cart_item_find = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+    if @cart_item_find
+      @cart_item_find.update(amount: @cart_item_find.amount + (params[:cart_item][:amount].to_i))
+    else
+      @cart_item.save
+    end
     redirect_to cart_items_path
   end
 
@@ -22,7 +27,7 @@ class Public::CartItemsController < ApplicationController
     @cart_item.destroy
     redirect_to cart_items_path
   end
-  
+
   def destroy_all
     CartItem.destroy_all
     redirect_to cart_items_path

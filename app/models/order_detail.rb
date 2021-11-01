@@ -10,7 +10,7 @@ class OrderDetail < ApplicationRecord
   def subtotal
     with_tax_price * amount
   end
-  
-  enum status: { impossible: 0, wait: 1, production: 2, completion: 3}
+
+  enum making: { impossible: 0, wait: 1, production: 2, completion: 3}
 
 end

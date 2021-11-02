@@ -48,10 +48,12 @@
       <td><%= order_detail.amount %></td>
       <td><%= order_detail.subtotal.to_s(:delimited) %></td>
       <% total += order_detail.subtotal %>
-      <%= form_with model: [:admin, @order], local:true do |f| %>
-      <td><%= f.select :making, OrderDetail.makings_i18n.invert %></td>
-      <td><%= f.submit "更新" %></td>
-      <% end %>
+      <td>
+        <%= form_with model: [:admin, @order], local:true do |f| %>
+        <%= f.select :making, OrderDetail.makings_i18n.invert %>
+        <%= f.submit "更新" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,6 @@
-<h2>会員一覧</h2>
+<h4 class="mx-5">会員一覧</h4>
 
-<table>
+<table class="table mx-auto" style="width: 60%;">
   <thead>
     <th>会員ID</th>
     <th>氏名</th>
@@ -18,3 +18,4 @@
   </tbody>
   <% end %>
 </table>
+<div class="d-flex justify-content-center"><%= paginate @customers %></div>

@@ -1,4 +1,5 @@
-<h2>商品新規登録</h2>
+<h3 class="mx-5">商品新規登録</h3>
+<div class="d-flex justify-content-center">
 <table>
   <tbody>
     <%= form_with model: [:admin, @item], local:true do |f| %>
@@ -32,10 +33,12 @@
       </td>
     </tr>
     <tr>
+      <td></td>
       <td>
-        <%= f.submit '新規登録' %>
+        <button type="submit" class="btn btn-success">新規登録</button>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+</div>

@@ -1,6 +1,6 @@
-<h2>注文履歴一覧</h2>
+<h4 class="mx-5">注文履歴一覧</h4>
 
-<table>
+<table class="table mx-auto" style="width: 60%;">
   <thead>
     <tr>
       <th>購入日時</th>
@@ -24,3 +24,4 @@
     <% end %>
   </tbody>
 </table>
+<div class="d-flex justify-content-center"><%= paginate @orders %></div>

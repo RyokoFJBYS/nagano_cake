@@ -1,19 +1,25 @@
-<p>
-  ようこそ、ながのCAKEへ！<br>
-  このサイトは、ケーキ販売のECサイトになります。<br>
-  会員でない方も商品の閲覧はできますが、<br>
-  購入には会員登録が必要になります。
-</p>
+<div class="d-flex justify-content-center">
+  <p>
+    ようこそ、ながのCAKEへ！<br>
+    このサイトは、ケーキ販売のECサイトになります。<br>
+    会員でない方も商品の閲覧はできますが、<br>
+    購入には会員登録が必要になります。
+  </p>
+</div>
 
-<h1>新着商品</h1>
-<% @items.first(4).each do |item| %>
-<%= link_to item_path(item.id) do %>
+
+<h2 class="font-weight-bold">新着商品</h2>
+<div class="d-flex">
+  <% @items.first(4).each do |item| %>
+  <%= link_to item_path(item.id) do %>
   <%= attachment_image_tag item, :image, :fill, 250, 200 %>
-<% end %>
-<p><%= item.name %></p>
-<p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
-<% end %>
+  <% end %>
+  <p class="font-weight-bold"><%= item.name %></p>
+  <p class="font-weight-bold">¥<%= item.with_tax_price.to_s(:delimited) %></p>
+  <% end %>
+</div>
 
-<div>
+
+<div class="text-right p-5">
   <%= link_to "全ての商品を見る >", items_path %>
 </div>

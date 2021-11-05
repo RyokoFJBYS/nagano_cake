@@ -51,7 +51,7 @@
                 <%= link_to "About", about_path, class: "text-dark" %>
               </li>
               <li class = "nav-item  nav-link text-light border rounded mx-3">
-                <%= link_to "商品一覧", customers_my_page_path, class: "text-dark" %>
+                <%= link_to "商品一覧", items_path, class: "text-dark" %>
               </li>
               <li class = "nav-item  nav-link text-light border rounded mx-3">
                 <%= link_to "新規登録", new_customer_registration_path, class: "text-dark" %>
@@ -67,7 +67,7 @@
       </div>
     </nav>
     <% if customer_signed_in? %>
-    <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+    <p class="text-center">ようこそ、<%= current_customer.last_name %>さん！</p>
     <% end %>
     <%= yield %>
   </body>

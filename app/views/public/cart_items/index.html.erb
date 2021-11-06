@@ -32,11 +32,11 @@
   </tbody>
 </table>
 
-<div class="d-flex" style="width: 60%;">
+<div class="d-flex mx-auto" style="width: 60%;">
   <%= link_to items_path do %>
     <button class="btn btn-primary" >買い物を続ける</button>
   <% end %>
-  <table class="table-bordered">
+  <table class="table-bordered float-end">
     <tbody>
       <tr>
         <td>合計金額</td>
@@ -46,8 +46,8 @@
   </table>
 </div>
 
-<div>
+<div class="text-center">
   <%= link_to new_order_path do %>
-    <button class="btn btn-success">情報入力に進む</button>
+    <button class="btn btn-success ">情報入力に進む</button>
   <% end %>
 </div>

@@ -51,8 +51,8 @@
           <td><%= order_detail.subtotal.to_s(:delimited) %></td>
           <% total += order_detail.subtotal %>
           <td>
-            <%= form_with model: [:admin, @order], local:true do |f| %>
-            <%= f.select :making, OrderDetail.makings.keys.to_a %>
+            <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), local:true do |f| %>
+            <%= f.select :making, OrderDetail.makings_i18n.invert %>
             <button type="submit" class="btn btn-success mx-3">更新</button>
             <% end %>
           </td>

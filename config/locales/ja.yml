@@ -16,7 +16,3 @@ ja:
         wait: '製作待ち'
         production: '製作中'
         completion: '製作完了'
-    item:
-      is_active:
-        sale: '販売中'
-        stop: '販売停止中'

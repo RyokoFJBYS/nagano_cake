@@ -1,9 +1,11 @@
-<h2>マイページ</h2>
+<h4 class="mx-5">マイページ</h4>
 
-<h2>登録情報</h2>
-<%= link_to "編集する", edit_customers_path %>
+<div class="d-flex my-3">
+  <h4 class="mx-4 font-weight-bold">登録情報</h4>
+  <%= link_to "編集する", edit_customers_path, class: "btn btn-success mx-2" %>
+</div>
 
-<table>
+<table class="table-bordered mx-4">
   <tbody>
     <tr>
       <td>氏名</td>
@@ -32,8 +34,12 @@
   </tbody>
 </table>
 
-<h2>配送先</h2>
-<%= link_to "一覧を見る", addresses_path %>
+<div class="d-flex my-3">
+  <h4 class="mx-4 font-weight-bold">配送先</h4>
+  <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary mx-2" %>
+</div>
 
-<h2>注文履歴</h2>
-<%= link_to "一覧を見る", orders_path %>
+<div class="d-flex my-3">
+  <h4 class="mx-4 font-weight-bold">注文履歴</h4>
+  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary mx-2" %>
+</div>

@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
-  
+
   before_action :authenticate_admin!
-  
+
   def show
     @order = Order.find(params[:id])
     @customer = @order.customer
@@ -11,6 +11,9 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    if @order.status == "confirm"
+      @order.order_details.update(making: "wait")
+    end
     redirect_to admin_order_path(@order.id)
   end
 

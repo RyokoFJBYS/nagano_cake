@@ -26,7 +26,3 @@ class Admin::OrderDetailsController < ApplicationController
   end
 
 end
-
-if @order.order_details.where(making: "completion").count == @order.order_details.count
-  @order_detail.order.update(status: "ready")
-end
